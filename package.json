@@ -23,8 +23,8 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "PORT=8001 gatsby develop --open",
-    "dev": "yarn clean && yarn develop",
+    "develop": "gatsby build --prefix-paths && gh-pages -d public",
+    "dev": "yarn clean && PORT=8001 gatsby develop --open",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
