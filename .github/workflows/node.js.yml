@@ -28,3 +28,4 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: main
           gatsby-args: --prefix-paths
+          skip-publish: true
