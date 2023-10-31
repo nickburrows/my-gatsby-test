@@ -18,12 +18,12 @@ const getInitialTheme = _ => {
   return "dark";
 };
 
-export const ThemeContext = createContext();
+// export const ThemeContext = createContext();
 
-// export const ThemeContext = createContext({
-//   theme: "",
-//   setTheme: theme => {},
-// });
+export const ThemeContext = createContext({
+  theme: "",
+  setTheme: theme => {},
+});
 
 // export const ThemeProvider = ({ children }) => {
 //   const [theme, setTheme] = useState("light");

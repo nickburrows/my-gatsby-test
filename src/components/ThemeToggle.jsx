@@ -3,10 +3,10 @@ import { ThemeContext } from "../utils/ThemeContext";
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
-  const isDark = () => {
-    return theme === "dark";
-  };
+  console.log(theme);
+  // const isDark = () => {
+  //   return theme === "dark";
+  // };
 
   // useEffect(() => {
   //   if (
@@ -40,7 +40,7 @@ const ThemeToggle = () => {
         onClick={toggleTheme}
       >
         <span className="material-symbols-outlined">
-          {isDark() ? "dark_mode" : "light_mode"}
+          {theme === "dark" ? "light_mode" : "dark_mode"}
         </span>
       </button>
     </>
