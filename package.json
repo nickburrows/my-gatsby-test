@@ -5,17 +5,45 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@tailwindcss/forms": "0.5.6",
+    "@tailwindcss/typography": "0.5.10",
+    "flowbite": "^2.0.0",
+    "flowbite-react": "^0.6.4",
     "gatsby": "^5.12.4",
+    "gatsby-plugin-feed": "5.12.3",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-manifest": "^5.12.0",
+    "gatsby-plugin-postcss": "^6.12.0",
+    "gatsby-plugin-sass": "^6.12.3",
     "gatsby-plugin-sharp": "^5.12.0",
+    "gatsby-remark-images": "7.12.3",
+    "gatsby-remark-prismjs": "7.12.0",
+    "gatsby-remark-responsive-iframe": "6.12.0",
     "gatsby-source-filesystem": "^5.12.0",
+    "gatsby-transformer-remark": "6.12.3",
     "gatsby-transformer-sharp": "^5.12.0",
+    "material-symbols": "0.13.2",
+    "normalize.css": "8.0.1",
+    "postcss": "^8.4.31",
+    "postcss-import": "^15.1.0",
+    "prismjs": "1.29.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "4.11.0",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "@types/eslint": "^8.44.6",
+    "@types/eslint-config-prettier": "^6.11.2",
+    "@types/gatsby-transformer-remark": "^2.9.3",
+    "@types/prismjs": "^1.26.2",
+    "autoprefixer": "^10.4.16",
+    "eslint": "8.52.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "0.5.6",
+    "tailwindcss": "^3.3.5"
   },
   "keywords": [
     "gatsby"

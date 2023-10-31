@@ -1,0 +1,302 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+/* CSS Custom Properties Definitions */
+:root {
+  --maxWidth-none: "none";
+  --maxWidth-xs: 20rem;
+  --maxWidth-sm: 24rem;
+  --maxWidth-md: 28rem;
+  --maxWidth-lg: 32rem;
+  --maxWidth-xl: 36rem;
+  --maxWidth-2xl: 42rem;
+  --maxWidth-3xl: 48rem;
+  --maxWidth-4xl: 56rem;
+  --maxWidth-full: "100%";
+  --maxWidth-wrapper: var(--maxWidth-2xl);
+  --spacing-px: "1px";
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --fontFamily-sans: "MontserratVariable", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
+    Times, serif;
+  --font-body: var(--fontFamily-serif);
+  --font-heading: var(--fontFamily-sans);
+  --fontWeight-normal: 400;
+  --fontWeight-bold: 700;
+  --fontWeight-black: 900;
+  --fontSize-root: 16px;
+  --lineHeight-none: 1;
+  --lineHeight-tight: 1.1;
+  --lineHeight-normal: 1.5;
+  --lineHeight-relaxed: 1.625; /* 1.200 Minor Third Type Scale */
+  --fontSize-0: 0.833rem;
+  --fontSize-1: 1rem;
+  --fontSize-2: 1.2rem;
+  --fontSize-3: 1.44rem;
+  --fontSize-4: 1.728rem;
+  --fontSize-5: 2.074rem;
+  --fontSize-6: 2.488rem;
+  --fontSize-7: 2.986rem;
+  --color-primary: #005b99;
+  --color-text: #2e353f;
+  --color-text-light: #4f5969;
+  /* --color-heading: #1a202c;
+  --color-heading-black: black; */
+  --color-accent: #d1dce5;
+}
+
+/* HTML elements */
+*,
+:after,
+:before {
+  @apply box-border;
+}
+html {
+  @apply text-[length:var(--fontSize-root)] leading-[var(--lineHeight-normal)];
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  @apply text-base text-[#2e353f];
+  font-family: var(--font-body);
+}
+footer {
+  @apply pb-[var(--spacing-6)] pl-[var(--spacing-0)] pr-[var(--spacing-0)] pt-[var(--spacing-6)];
+}
+hr {
+  @apply h-px border-0;
+  background: #d1dce5;
+}
+
+/* Heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mb-[var(--spacing-6)] mt-[var(--spacing-12)] leading-[var(--lineHeight-tight)] -tracking-wide;
+  font-family: var(--font-heading);
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-[number:var(--fontWeight-bold)] text-[#1a202c] dark:text-stone-200;
+}
+h1 {
+  @apply text-[length:var(--fontSize-6)] font-[number:var(--fontWeight-black)] text-black dark:text-white;
+}
+h2 {
+  @apply text-[length:var(--fontSize-5)];
+}
+h3 {
+  @apply text-[length:var(--fontSize-4)];
+}
+h4 {
+  @apply text-[length:var(--fontSize-3)];
+}
+h5 {
+  @apply text-[length:var(--fontSize-2)];
+}
+h6 {
+  @apply text-[length:var(--fontSize-1)];
+}
+h1 > a {
+  @apply text-inherit no-underline;
+}
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  @apply text-inherit no-underline;
+}
+
+/* Prose */
+p {
+  @apply mb-[var(--spacing-8)] ml-[var(--spacing-0)] mr-[var(--spacing-0)] mt-[var(--spacing-0)] pb-[var(--spacing-0)] pl-[var(--spacing-0)] pr-[var(--spacing-0)] pt-[var(--spacing-0)] leading-[var(--lineHeight-relaxed)];
+  --baseline-multiplier: 0.179;
+  --x-height-multiplier: 0.35;
+}
+ul,
+ol {
+  @apply mb-[var(--spacing-8)] ml-[var(--spacing-0)] mr-[var(--spacing-0)] list-outside pb-[var(--spacing-0)] pl-[var(--spacing-0)] pr-[var(--spacing-0)] pt-[var(--spacing-0)];
+  list-style-image: none;
+}
+ul li,
+ol li {
+  @apply mb-[calc(var(--spacing-8)_/_2)] pl-[var(--spacing-0)];
+}
+li > p {
+  @apply mb-[calc(var(--spacing-8)_/_2)];
+}
+li *:last-child {
+  @apply mb-[var(--spacing-0)];
+}
+li > ul {
+  @apply ml-[var(--spacing-8)] mt-[calc(var(--spacing-8)_/_2)];
+}
+blockquote {
+  @apply mb-[var(--spacing-8)] ml-[calc(-1_*_var(--spacing-6))] mr-[var(--spacing-8)] border-l-[length:var(--spacing-1)] border-solid border-l-[#005b99] pb-[var(--spacing-0)] pl-[var(--spacing-6)] pr-[var(--spacing-0)] pt-[var(--spacing-0)] text-[length:var(--fontSize-2)] italic text-[#4f5969];
+}
+blockquote > :last-child {
+  @apply mb-[var(--spacing-0)];
+}
+blockquote > ul,
+blockquote > ol {
+  @apply list-inside;
+}
+table {
+  @apply mb-[var(--spacing-8)] w-full border-collapse border-spacing-1;
+}
+table thead tr th {
+  @apply border-b border-solid border-b-[#d1dce5];
+}
+
+/* Link */
+a {
+  @apply text-[#005b99] dark:text-cyan-500;
+}
+a:hover,
+a:focus {
+  @apply no-underline;
+}
+
+/* Custom classes */
+.global-wrapper {
+  @apply mx-auto mb-[var(--spacing-0)] mt-[var(--spacing-0)] max-w-[var(--maxWidth-wrapper)] pb-[var(--spacing-10)] pl-[var(--spacing-5)] pr-[var(--spacing-5)] pt-[var(--spacing-10)];
+}
+.global-wrapper[data-is-root-path="true"] .bio {
+  @apply mb-[var(--spacing-20)];
+}
+.global-header {
+  @apply mb-[var(--spacing-12)];
+}
+.heading-group {
+  @apply flex items-center gap-2;
+}
+#lightdark {
+  @apply ml-auto;
+}
+.main-heading {
+  @apply m-0 text-[length:var(--fontSize-7)];
+}
+.post-list-item {
+  @apply mb-[var(--spacing-8)] mt-[var(--spacing-8)];
+}
+.post-list-item p {
+  @apply mb-[var(--spacing-0)];
+}
+.post-list-item h2 {
+  @apply mb-[var(--spacing-2)] mt-[var(--spacing-0)] text-[length:var(--fontSize-4)] text-[#005b99];
+}
+.post-list-item header {
+  @apply mb-[var(--spacing-4)];
+}
+.header-link-home {
+  @apply text-[length:var(--fontSize-2)] font-[number:var(--fontWeight-bold)] no-underline;
+  font-family: var(--font-heading);
+}
+.bio {
+  @apply mb-[var(--spacing-16)] flex;
+}
+.bio p {
+  @apply mb-[var(--spacing-0)];
+}
+.bio-avatar {
+  @apply mb-[var(--spacing-0)] mr-[var(--spacing-4)] min-w-[50px] rounded-[100%];
+}
+.blog-post header h1 {
+  @apply mb-[var(--spacing-4)] ml-[var(--spacing-0)] mr-[var(--spacing-0)] mt-[var(--spacing-0)];
+}
+.blog-post header p {
+  @apply text-[length:var(--fontSize-2)];
+  font-family: var(--font-heading);
+}
+.blog-post-nav ul {
+  @apply mb-[var(--spacing-0)] ml-[var(--spacing-0)] mr-[var(--spacing-0)] mt-[var(--spacing-0)];
+}
+code,
+kbd,
+pre,
+samp {
+  @apply font-mono text-base;
+  line-height: inherit;
+}
+pre {
+  @apply mx-0 mb-6 mt-0 overflow-auto break-normal rounded-md bg-black/40 p-6 text-sm leading-normal;
+}
+p {
+  max-width: 680px;
+}
+code {
+  font-size: 0.875rem;
+}
+kbd {
+  font-size: 0.875rem;
+}
+samp {
+  font-size: 0.875rem;
+}
+abbr {
+  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
+  cursor: help;
+}
+acronym {
+  border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
+  cursor: help;
+}
+tt,
+code {
+  @apply break-normal rounded-md bg-[#fff4db] p-1 font-mono text-[#8a6534] dark:bg-[#1e293b] dark:text-[#e2e8f0];
+}
+pre code {
+  background: none;
+}
+code:before,
+code:after,
+tt:before,
+tt:after {
+  content: "\00a0";
+  letter-spacing: -0.2em;
+}
+pre code:before,
+pre code:after,
+pre tt:before,
+pre tt:after {
+  content: none;
+}
+.gatsby-highlight {
+  @apply mb-[var(--spacing-8)];
+}
+
+/* Media queries */
+@media (max-width: 42rem) {
+  blockquote {
+    @apply ml-[var(--spacing-0)] pb-[var(--spacing-0)] pl-[var(--spacing-4)] pr-[var(--spacing-0)] pt-[var(--spacing-0)];
+  }
+  ul,
+  ol {
+    @apply list-inside;
+  }
+}
